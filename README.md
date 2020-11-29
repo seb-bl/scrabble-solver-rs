@@ -4,6 +4,10 @@
 A helper that finds all words that can be played on a scrabble board, and
 evaluates their scores.
 
+### Note
+
+Be aware this is just a hobby project for me, my future work on this project is quite uncertain.
+
 # Usage
 
 ## Board file
