@@ -32,11 +32,28 @@ represented with a star `*` (for example `trean*o` has 6 letters and a wildcard)
 
 ## Example
 
-To show top 5 moves for the board in `board.txt` with `trean*o` in the tray:
+To show top 10 moves for the board in `board.txt` with `trean*o` in the tray:
 
 ```
-cargo run --bin scrabble_one -- --dictionary wwfwordlist.txt --board board.txt -n 5 --tray trean*o
+cargo run --bin scrabble_one -- --dictionary wwfwordlist.txt --board board.txt -n 10 --tray trean*o
 ```
+
+It outputs 10 moves:
+
+```
+127:  H-1  ↓, *ronate        ["pronated"]
+      H-1  ↓, at*orne        ["attorned"]
+      H-9  ↓, ra*onet        ["dragonet"]
+      H-1  ↓, a*torne        ["attorned"]
+      H-1  ↓, note*ar        ["notecard"]
+      H-1  ↓, rato*ne        ["ratooned"]
+      H-1  ↓, no*rate        ["nonrated"]
+      H-1  ↓, *artone        ["cartoned"]
+      H-1  ↓, *onrate        ["nonrated"]
+124:  H-1  ↓, rat*one        ["ratooned", "rationed"]
+```
+
+Which means that playing the word "attorned" vertically at row H column 1 with a wildcard on 't' you get 127.
 
 # Config
 

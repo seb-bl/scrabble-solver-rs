@@ -431,8 +431,8 @@ fn format_move(
 impl PositionFormat {
     fn format(&self, pos: &scrabble::Position) -> String {
         match self {
-            Self::LetterDigit => format!("{:>2}-{:<2}", (b'A' + pos.row as u8) as char, pos.col+1),
-            Self::DigitLetter => format!("{:>2}-{:<2}", pos.row+1, (b'A' + pos.col as u8) as char),
+            Self::LetterDigit => format!("{:>2}-{:<2}", (b'A' + pos.col as u8) as char, pos.row+1),
+            Self::DigitLetter => format!("{:>2}-{:<2}", pos.col+1, (b'A' + pos.row as u8) as char),
         }
     }
 }
