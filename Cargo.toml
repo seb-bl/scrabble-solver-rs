@@ -1,0 +1,15 @@
+[package]
+name = "scrabble"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+log = "0.4"
+simple_logger = "1.11"
+fst = "0.4.5"
+dashmap = "3.11"
+rayon = "1.5"
+typed-arena = "2.0.1"
+structopt = "0.3"
+serde = { version = "1.0.117", features = ["derive"] }
+config = "0.10.1"
