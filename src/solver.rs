@@ -267,13 +267,14 @@ pub mod arenas {
             // NOTE: the limited api of Arenas does not allow to drop the boxes
             // or access the arenas by any other way than from the result of this function
             // before the end of the lifetime bound to the returned reference
-                
-            let a = Box::new(Arena::new());
-            let b = Box::into_raw(a);
-            let mut inner = self.0.lock().unwrap();
-            inner.push(unsafe { Box::from_raw(b) });
             
-            unsafe { b.as_ref() }.unwrap()
+            let a = Box::new(Arena::new());
+            let mut inner = self.0.lock().unwrap();
+            inner.push(a);
+            let b: &Arena<_> = &*inner.last().unwrap();
+            
+            // extends lifetime from the lifetime of `inner` to the lifetime of what is returned by the function (`self`)
+            unsafe { (b as *const Arena<T>).as_ref().unwrap() }
         }
         pub fn into_inner(self) -> Vec<Box<Arena<T>>> {
             self.0.into_inner().unwrap()
